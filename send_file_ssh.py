@@ -29,16 +29,15 @@ def connect(hostname: str, port: int, username: str, password: str | None = None
     return ssh
 
 
-def progress(transfered, total):
-    perct = (transfered / total) * 100
-    print(f"Sending: {perct:.1f}% ({transfered}/{total} bytes)", end='\r')
+def progress(transferred, total):
+    percentage = (transferred / total) * 100
+    print(f"Sending: {percentage:.1f}%", end='\r')
 
 
 def send_comic(ssh : paramiko.SSHClient, local_file, remote_file):
     with ssh.open_sftp() as sftp:
-        atributos = sftp.put(local_file, remote_file, callback=progress)
-        print(" Upload concluído com sucesso!")
-        print(f"Tamanho remoto confirmado: {atributos.st_size} bytes")
+        sftp.put(local_file, remote_file, callback=progress)
+        print(" Upload completed successfully!")
 
 
 def close_connection(ssh : paramiko.SSHClient):
