@@ -101,12 +101,3 @@ Run PyInstaller on Windows:
 py -m PyInstaller --onefile --name cbz2koreader main.py
 .\dist\cbz2koreader.exe --help
 ```
-
-Users of the standalone executable do not need Python installed.
-
-The generated binaries can be attached separately to a GitHub Release, for example:
-
-```text
-cbz2koreader-linux-x86_64
-cbz2koreader-windows-x86_64.exe
-```
