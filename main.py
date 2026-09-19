@@ -140,7 +140,7 @@ def main():
                 if title is None:
                     title = file_name[:-4]
 
-                # send_comic(ssh, local_file, remote_folder + file_name)
+                send_comic(ssh, local_file, remote_folder + file_name)
                 create_sdr(
                     ssh, remote_folder, file_name,
                     authors, series, series_index, title, tags,
